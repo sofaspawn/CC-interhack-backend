@@ -8,7 +8,7 @@ app = FastAPI()
 
 load_dotenv()
 HF_API_KEY = os.getenv("HF_API_KEY")
-API_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct"
+API_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-v0.1"
 
 headers = {"Authorization": f"Bearer {HF_API_KEY}"}
 
