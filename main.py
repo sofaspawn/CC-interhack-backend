@@ -3,14 +3,13 @@ import os
 from dotenv import load_dotenv
 import google.generativeai as genai
 from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
 
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
-# Configure Google Gemini AI
 genai.configure(api_key=GEMINI_API_KEY)
 
-# Use Gemini model
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 app = FastAPI()
@@ -30,7 +29,7 @@ def generate_story(user_prompt: str):
         "You are talking to user directly, address them in second person. "
         "Keep events realistic and within campus life, unless a supernatural or mystery element emerges. "
         "Continue the story based on the user's input naturally, without listing choices."
-        "The story should be short i.e 5-6 lines and engaging, witha a cliffhanger. "
+        "The story should be short i.e 5-6 lines and engaging, with a cliffhanger. "
         "The story should take place in VIT Vellore campus. "
         "Instead of using the user's name, use 'you' or 'your' to refer to the user. "
         "Do not make the responses sound robotic. "
@@ -65,3 +64,6 @@ def continue_story(data: dict):
 
     return generate_story(prompt)
 
+if __name__ == "__main__":
+    PORT = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=PORT)
