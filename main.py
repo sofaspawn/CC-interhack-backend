@@ -33,16 +33,30 @@ def generate_story(user_prompt: str):
         "The story should take place in VIT Vellore campus. "
         "Instead of using the user's name, use 'you' or 'your' to refer to the user. "
         "Do not make the responses sound robotic. "
-        "The following are the rules of VIT: "
+        "Do not use words, phrases or sentences that break the immersion of the user. "
+        "Always end the story with a question asking the user about their decision. "
+    )
+
+    vit_specific_guidelines = (
+        "The following are the rules of VIT which should be taken into consideration while forming a story: "
         "1. You cannot drink/smoke or indulge in any kind of recreational drugs on campus. "
         "2. No adult content or explicit language. "
         "3. No political or religious content. "
         "4. No public display-of-affection is tolerated by the vit officials. "
         "The user must be allowed to make any choices they want, however, whatever choices they make should be met with appropriate consequences. "
-        "Do not use words, phrases or sentences that break the immersion of the user. "
+        "The following are some phrases with their associated meanings that should be used in the story whenever applicable: "
+        "1. 'VITians' - Students of VIT. "
+        "2. 'VIT campus' - The VIT Vellore campus. "
+        "3. 'VIT officials' - The authorities of VIT. "
+        "4. 'hostels' - The residential buildings of VIT. "
+        "5. 'food court' - The food court of VIT. "
+        "6. 'library' - The study area of VIT. "
+        "7. 'Red Tag Anna' - The disciplinary personnel of VIT. "
+        "8. 'shuttle' - The transportation service of VIT. "
+        "9. 'vit clinic' - The medical facility of VIT. "
     )
 
-    full_prompt = f"{system_prompt}\n\n{user_prompt}\n\nContinue the story:"
+    full_prompt = f"{system_prompt}\n\n{vit_specific_guidelines}\n\n{user_prompt}\n\nContinue the story:"
 
     model = genai.GenerativeModel("gemini-2.0-flash")
     response = model.generate_content([full_prompt])

@@ -8,7 +8,11 @@
 - [x] Get the model to hold context
 - [x] Generate better stories
 
-- [ ] generate multiplayer content
+- [x] Add VIT guidelines
+- [ ] Improve VIT guidelines
+
+- [ ] Implement multiplayer
+
 
 ## 📡 API Endpoints
 
