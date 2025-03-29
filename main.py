@@ -79,7 +79,7 @@ def generate(data: dict):
     name = data.get("name", "Anonymous")
     user_input = data.get("user_input", "a run-of-the-mill kid stuck in the trials and tribulations of college life")
 
-    prompt = f"Create a story about {name}, who is {user_input}. What bewildering and out-of-the-world situation are they in right now?"
+    prompt = f"Create a story about {name}, who is {user_input}. What bewildering and out-of-the-world situation are they in right now? The user is the one playing right now."
     return generate_story(prompt)
 # --------------------------------- POST (/generate) ---------------------------------
 
@@ -102,3 +102,8 @@ def continue_story(data: dict):
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 8000))
     uvicorn.run(app, host="0.0.0.0", port=PORT)
+
+
+## figure out the multiplayer shit
+## turn based multiplayer
+## instead of creating user accounts, i can have the users as characters in the story
