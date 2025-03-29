@@ -33,6 +33,12 @@ def generate_story(user_prompt: str):
         "The story should take place in VIT Vellore campus. "
         "Instead of using the user's name, use 'you' or 'your' to refer to the user. "
         "Do not make the responses sound robotic. "
+        "The following are the rules of VIT: "
+        "1. You cannot drink/smoke or indulge in any kind of recreational drugs on campus. "
+        "2. No adult content or explicit language. "
+        "3. No political or religious content. "
+        "4. No public display-of-affection is tolerated by the vit officials. "
+        "Whatever choices the user makes should be met with appropriate consequences. "
     )
 
     full_prompt = f"{system_prompt}\n\n{user_prompt}\n\nContinue the story:"
