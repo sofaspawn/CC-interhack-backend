@@ -93,6 +93,10 @@ def generate(data: dict):
 def continue_story(data: dict):
     previous_story = data.get("previous_story", "")
     user_choice = data.get("user_choice", "")
+    end_story = data.get("end_story", False)
+
+    if end_story:
+        return {"character_story": "The story ends here. Do you want to start a new story?"}
 
     prompt = f"Previous situation: {previous_story}\nUser wants to continue with: {user_choice}\n\nContinue the story."
 
