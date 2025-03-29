@@ -38,7 +38,7 @@ def generate_story(user_prompt: str):
         "2. No adult content or explicit language. "
         "3. No political or religious content. "
         "4. No public display-of-affection is tolerated by the vit officials. "
-        "Whatever choices the user makes should be met with appropriate consequences. "
+        "The user must be allowed to make any choices they want, however, whatever choices they make should be met with appropriate consequences. "
     )
 
     full_prompt = f"{system_prompt}\n\n{user_prompt}\n\nContinue the story:"
