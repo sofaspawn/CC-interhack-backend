@@ -4,9 +4,11 @@
 - [x] Setup basic script
 - [x] find a functioning AI model
 - [x] Implement the AI model
-- [ ] Improve system prompt
-- [ ] Get the model to hold context
-- [ ] Generate better stories
+- [x] Improve system prompt
+- [x] Get the model to hold context
+- [x] Generate better stories
+
+- [ ] generate multiplayer content
 
 ## Endpoints:
 - /generate
@@ -15,5 +17,3 @@
     - prompt: str
   - Response:
     - generated_text: str
-
-

@@ -10,7 +10,7 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 genai.configure(api_key=GEMINI_API_KEY)
 
-model = genai.GenerativeModel("gemini-1.5-flash")
+model = genai.GenerativeModel("gemini-1.5-flash") # model being used is gemini 1.5 flash
 
 app = FastAPI()
 
@@ -39,6 +39,7 @@ def generate_story(user_prompt: str):
         "3. No political or religious content. "
         "4. No public display-of-affection is tolerated by the vit officials. "
         "The user must be allowed to make any choices they want, however, whatever choices they make should be met with appropriate consequences. "
+        "Do not use words, phrases or sentences that break the immersion of the user. "
     )
 
     full_prompt = f"{system_prompt}\n\n{user_prompt}\n\nContinue the story:"
@@ -53,6 +54,12 @@ def generate_story(user_prompt: str):
 
     return {"character_story": generated_text}
 
+
+# --------------------------------- POST (/generate) ---------------------------------
+# {
+#     "name": <name-of-the-user>,
+#     "user_input": <characteristic-of-the-user> (if any)
+# }
 @app.post("/generate")
 def generate(data: dict):
     name = data.get("name", "Anonymous")
@@ -60,15 +67,23 @@ def generate(data: dict):
 
     prompt = f"Create a story about {name}, who is {user_input}. What bewildering and out-of-the-world situation are they in right now?"
     return generate_story(prompt)
+# --------------------------------- POST (/generate) ---------------------------------
 
+
+# --------------------------------- POST (/continue) ---------------------------------
+# {
+#     "previous_story": <story-generated-in-the-previous-step>,
+#     "user_choice": <choice-made-by-the-user> (if any)
+# }
 @app.post("/continue")
 def continue_story(data: dict):
     previous_story = data.get("previous_story", "")
-    user_input = data.get("user_input", "")
+    user_choice = data.get("user_choice", "")
 
-    prompt = f"Previous situation: {previous_story}\nUser wants to continue with: {user_input}\n\nContinue the story."
+    prompt = f"Previous situation: {previous_story}\nUser wants to continue with: {user_choice}\n\nContinue the story."
 
     return generate_story(prompt)
+# --------------------------------- POST (/continue) ---------------------------------
 
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 8000))
