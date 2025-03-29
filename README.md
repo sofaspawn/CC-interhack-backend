@@ -10,10 +10,10 @@
 
 - [ ] generate multiplayer content
 
-## Endpoints:
-- /generate
-  - POST
-  - Request:
-    - prompt: str
-  - Response:
-    - generated_text: str
+## 📡 API Endpoints
+
+| Method  | Endpoint     | Request Format |
+|---------|-------------|---------------|
+| **POST** | `/generate`  | `{ "name": "<string>", "user_input": "<string>" }` |
+| **POST** | `/continue`  | `{ "previous_story": "<string>", "user_choice": "<string>" }` |
+
