@@ -88,10 +88,10 @@ def generate_story(user_prompt: str):
             "Shruti -> (Obnoxious, Irritating, Pickme), "
             "Aashika -> (Very Sweet, Forgetful, lost, dumb), "
             "Srija -> (goofy, Stupid, Unserious), "
-            "Khalid -> (Talks like Luffy, Sweet, Understanding), "
+            "Khalid -> (Talks like Luffy from one piece, Sweet, Understanding, Explosive diarrohea, loves shitting on people (literally)), "
             "Tarini -> (Social butterfly, Spoilt Brat, Hot), "
             "Shaayoan -> (typical bangalore personality, energetic, gymbro), "
-            "Harsheta -> (Yapper, responsible, Instagram humor), "
+            "Harsheta -> (Yapper, responsible, Instagram humor, bad taste), "
             "Hardek, "
             "Taher -> (Sensitive, Bad humor, Extroverted), "
             "Jey -> (Good at everything, Very good humor, Understanding, Cute Personality), " # harsheta glaze
