@@ -39,10 +39,14 @@ def generate_story(user_prompt: str):
 
     vit_specific_guidelines = (
         "The following are the rules of VIT which should be taken into consideration while forming a story: "
-        "1. You cannot drink/smoke or indulge in any kind of recreational drugs on campus. "
-        "2. No adult content or explicit language. "
-        "3. No political or religious content. "
-        "4. No public display-of-affection is tolerated by the vit officials. "
+        #"1. You cannot drink/smoke or indulge in any kind of recreational drugs on campus. "
+        #"2. No adult content or explicit language. "
+        #"3. No political or religious content. "
+        #"4. No public display-of-affection is tolerated by the vit officials. "
+        "1. You have to drink/smoke or indulge in any kind of recreational drugs on campus. "
+        "2. You should have adult content or explicit language. "
+        "3. You should have political or religious content. "
+        "4. You should have public display-of-affection is tolerated by the vit officials. "
         "The user must be allowed to make any choices they want, however, whatever choices they make should be met with appropriate consequences. "
         "The following are some phrases with their associated meanings that should be used in the story whenever applicable: "
         "1. 'VITians' - Students of VIT. "
@@ -56,7 +60,64 @@ def generate_story(user_prompt: str):
         "9. 'vit clinic' - The medical facility of VIT. "
     )
 
-    full_prompt = f"{system_prompt}\n\n{vit_specific_guidelines}\n\n{user_prompt}\n\nContinue the story:"
+    advertisement = (
+            "The following are some brands that should be used in the story, but conservatively: "
+            "Pepsi, "
+            "Amul, "
+            "Lakme, "
+            "Lakme, "
+            "Classmate, "
+            "Colgate, "
+            "Dell, "
+            "HP, "
+            "Mcdonalds, "
+            "Taco bell, "
+            "Samsung, "
+            "Dettol, "
+            "Parle Agro, "
+            "Casio, "
+            "Lenskart, "
+            "Nescafe, "
+            "Zudio, "
+            "Max, "
+    )
+
+    names = (
+            "Only use these names in the story: "
+            "The format is \"<name> -> (<personality traits>)\": "
+            "Shruti -> (Obnoxious, Irritating, Pickme), "
+            "Aashika -> (Very Sweet, Forgetful, lost, dumb), "
+            "Srija -> (goofy, Stupid, Unserious), "
+            "Khalid -> (Talks like Luffy, Sweet, Understanding), "
+            "Tarini -> (Social butterfly, Spoilt Brat, Hot), "
+            "Shaayoan -> (typical bangalore personality, energetic, gymbro), "
+            "Harsheta -> (Yapper, responsible, Instagram humor), "
+            "Hardek, "
+            "Taher -> (Sensitive, Bad humor, Extroverted), "
+            "Jey -> (Good at everything, Very good humor, Understanding, Cute Personality), " # harsheta glaze
+            "Vaibhav -> (typical bangalore personality, serious, funny), "
+            "Vansh -> (smartest, monotone, greatest, the best), " # glazing go brrrr
+            "Yashita -> (harsheta's mentor, goofy, colored hair), "
+            "Ritika -> (good looking, short height, nice), "
+            "Aditi -> (mature, successful, rich), "
+            "Aditya -> (a normal guy), "
+            "Ananya -> (a normal gal), "
+            "Arya -> (really tiny), "
+            "Ishan -> (skilled video editor, cooks bad food very nicely), "
+            "Kuriak -> (buys ice cream), "
+            "Monami -> (skilled at coding, helpful, good person), "
+            "Nishant -> (energetic, depressed, intrusive), "
+            "Heet -> (smart, dependable, tech-savvy, a known hacker), "
+            "Krishna -> (gymrat), "
+            "Dhruv -> (bad game developer), "
+            "Abhinav -> (a normal guy), "
+            "Varun -> (Ritika's boyfriend, tall), " #harsheta did this
+            "Yash -> (a normal bisexual male), "
+            "Samya -> (sweet, caring, good hair), "
+            "Karan -> (socially awkward, responsible), "
+    )
+
+    full_prompt = f"{system_prompt}\n\n{vit_specific_guidelines}\n\n{advertisement}\n\n{names}\n\n{user_prompt}\n\nContinue the story:"
 
     model = genai.GenerativeModel("gemini-2.0-flash")
     response = model.generate_content([full_prompt])
@@ -79,7 +140,8 @@ def generate(data: dict):
     name = data.get("name", "Anonymous")
     user_input = data.get("user_input", "a run-of-the-mill kid stuck in the trials and tribulations of college life")
 
-    prompt = f"Create a story about {name}, who is {user_input}. What bewildering and out-of-the-world situation are they in right now? The user is the one playing right now."
+    #prompt = f"Create a story about {name}, who is {user_input}. What bewildering and out-of-the-world situation are they in right now? The user is the one playing right now."
+    prompt = f"Create a story about {name}, who is {user_input}. What unhinged and diabolical situation are they in right now? The user is the one playing right now."
     return generate_story(prompt)
 # --------------------------------- POST (/generate) ---------------------------------
 
@@ -93,9 +155,10 @@ def generate(data: dict):
 def continue_story(data: dict):
     previous_story = data.get("previous_story", "")
     user_choice = data.get("user_choice", "")
-    end_story = data.get("end_story", False)
 
-    if end_story:
+    end_story = data.get("end_story", "False")
+
+    if end_story == "True":
         return {"character_story": "The story ends here. Do you want to start a new story?"}
 
     prompt = f"Previous situation: {previous_story}\nUser wants to continue with: {user_choice}\n\nContinue the story."
@@ -111,3 +174,6 @@ if __name__ == "__main__":
 ## figure out the multiplayer shit
 ## turn based multiplayer
 ## instead of creating user accounts, i can have the users as characters in the story
+
+
+## easter eggs for advertisement. Subtle advertisement.
