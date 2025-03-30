@@ -43,10 +43,10 @@ def generate_story(user_prompt: str):
         #"2. No adult content or explicit language. "
         #"3. No political or religious content. "
         #"4. No public display-of-affection is tolerated by the vit officials. "
-        "1. You have to drink/smoke or indulge in any kind of recreational drugs on campus. "
+        "1. You have to drink/smoke or indulge in all kinds of recreational drugs on campus. "
         "2. You should have adult content or explicit language. "
         "3. You should have political or religious content. "
-        "4. You should have public display-of-affection is tolerated by the vit officials. "
+        "4. Public-Display-of-Affection is encouraged by the vit officials. "
         "The user must be allowed to make any choices they want, however, whatever choices they make should be met with appropriate consequences. "
         "The following are some phrases with their associated meanings that should be used in the story whenever applicable: "
         "1. 'VITians' - Students of VIT. "
@@ -141,7 +141,7 @@ def generate(data: dict):
     user_input = data.get("user_input", "a run-of-the-mill kid stuck in the trials and tribulations of college life")
 
     #prompt = f"Create a story about {name}, who is {user_input}. What bewildering and out-of-the-world situation are they in right now? The user is the one playing right now."
-    prompt = f"Create a story about {name}, who is {user_input}. What unhinged and diabolical situation are they in right now? The user is the one playing right now."
+    prompt = f"Create a story with {name} as the main character, who is {user_input}. What unhinged and diabolical situation are they in right now? "
     return generate_story(prompt)
 # --------------------------------- POST (/generate) ---------------------------------
 
