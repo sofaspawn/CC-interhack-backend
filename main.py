@@ -10,8 +10,6 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 genai.configure(api_key=GEMINI_API_KEY)
 
-model = genai.GenerativeModel("gemini-1.5-flash") # model being used is gemini 1.5 flash
-
 app = FastAPI()
 
 app.add_middleware(
@@ -91,8 +89,7 @@ def generate_story(user_prompt: str):
             "Khalid -> (Talks like Luffy from one piece, Sweet, Understanding, Explosive diarrohea, loves shitting on people (literally)), "
             "Tarini -> (Social butterfly, Spoilt Brat, Hot), "
             "Shaayoan -> (typical bangalore personality, energetic, gymbro), "
-            "Harsheta -> (Yapper, responsible, Instagram humor, bad taste), "
-            "Hardek, "
+            "Harsheta -> (Yapper, responsible, instagram humor, bad taste), "
             "Taher -> (Sensitive, Bad humor, Extroverted), "
             "Jey -> (Good at everything, Very good humor, Understanding, Cute Personality), " # harsheta glaze
             "Vaibhav -> (typical bangalore personality, serious, funny), "
@@ -112,7 +109,7 @@ def generate_story(user_prompt: str):
             "Dhruv -> (bad game developer), "
             "Abhinav -> (a normal guy), "
             "Varun -> (Ritika's boyfriend, tall), " #harsheta did this
-            "Yash -> (a normal bisexual male), "
+            "Yash -> (a normal guy), "
             "Samya -> (sweet, caring, good hair), "
             "Karan -> (socially awkward, responsible), "
     )
@@ -141,8 +138,12 @@ def generate(data: dict):
     user_input = data.get("user_input", "a run-of-the-mill kid stuck in the trials and tribulations of college life")
 
     #prompt = f"Create a story about {name}, who is {user_input}. What bewildering and out-of-the-world situation are they in right now? The user is the one playing right now."
-    prompt = f"Create a story with {name} as the main character, who is {user_input}. What unhinged and diabolical situation are they in right now? "
+    prompt = f"Create a story where I am {name} and I am the main character, I am {user_input}. What unhinged and diabolical situation are they in right now? "
     return generate_story(prompt)
+# {
+#     "character_story": <story-generated>
+# }
+#
 # --------------------------------- POST (/generate) ---------------------------------
 
 
@@ -164,6 +165,9 @@ def continue_story(data: dict):
     prompt = f"Previous situation: {previous_story}\nUser wants to continue with: {user_choice}\n\nContinue the story."
 
     return generate_story(prompt)
+# {
+#     "character_story": <story-generated-using-the-previous-story>,
+# }
 # --------------------------------- POST (/continue) ---------------------------------
 
 if __name__ == "__main__":
