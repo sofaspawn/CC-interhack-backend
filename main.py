@@ -152,6 +152,7 @@ def add_players(data: dict):
 
     players = player_names
     current_turn = 0  # Reset turn order
+    print({"message": "Players added successfully.", "current_players": players, "current_turn": players[current_turn]})
     return {"message": "Players added successfully.", "current_players": players, "current_turn": players[current_turn]}
 
 
@@ -179,6 +180,7 @@ def generate(data: dict):
     #prompt = f"Create a story about {name}, who is {user_input}. What bewildering and out-of-the-world situation are they in right now? The user is the one playing right now."
     prompt = f"Create a story where I am {name} and I am the main character, I am {user_input}. What unhinged and diabolical situation are they in right now? "
     response = generate_story(prompt)
+    print({"character_story": response["character_story"], "current_turn": name})
     return {"character_story": response["character_story"], "current_turn": name}
 
 # --------------------------------- POST (/continue) ---------------------------------
@@ -216,6 +218,7 @@ def continue_story(data: dict):
 
     current_turn = (current_turn + 1) % len(players)
 
+    print({"character_story": response["character_story"], "current_turn": players[current_turn]})
     return {"character_story": response["character_story"], "current_turn": players[current_turn]}
 # {
 #     "character_story": <story-generated-using-the-previous-story>,
