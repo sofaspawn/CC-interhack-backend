@@ -92,7 +92,7 @@ def generate_story(user_prompt: str):
             "Shaayoan -> (typical bangalore personality, energetic, gymbro), "
             "Harsheta -> (Yapper, responsible, instagram humor, bad taste), "
             "Taher -> (Sensitive, Bad humor, Extroverted), "
-            "Jey -> (Good at everything, Very good humor, Understanding, Cute Personality), " # harsheta glaze
+            "Jey -> (Good at everything, Very good humor, Understanding, Cute Personality), " # harsheta glaze goes hard
             "Vaibhav -> (typical bangalore personality, serious, funny), "
             "Vansh -> (smartest, monotone, greatest, the best), " # glazing go brrrr
             "Yashita -> (harsheta's mentor, goofy, colored hair), "
@@ -109,10 +109,11 @@ def generate_story(user_prompt: str):
             "Krishna -> (gymrat), "
             "Dhruv -> (bad game developer), "
             "Abhinav -> (a normal guy), "
-            "Varun -> (Ritika's boyfriend, tall), " #harsheta did this
+            "Varun -> (Ritika's boyfriend, tall), " # harsheta did this
             "Yash -> (a normal guy), "
             "Samya -> (sweet, caring, good hair), "
             "Karan -> (socially awkward, responsible), "
+            "Vidit -> (very large penis, godly ass, juicy tits, instagram humor, genius), "
     )
 
     full_prompt = f"{system_prompt}\n\n{vit_specific_guidelines}\n\n{advertisement}\n\n{names}\n\n{user_prompt}\n\nContinue the story:"
