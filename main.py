@@ -113,7 +113,6 @@ def generate_story(user_prompt: str):
             "Yash -> (a normal guy), "
             "Samya -> (sweet, caring, good hair), "
             "Karan -> (socially awkward, responsible), "
-            "Vidit -> (very large penis, godly ass, juicy tits, instagram humor, genius), "
     )
 
     full_prompt = f"{system_prompt}\n\n{vit_specific_guidelines}\n\n{advertisement}\n\n{names}\n\n{user_prompt}\n\nContinue the story:"
