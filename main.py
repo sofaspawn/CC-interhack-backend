@@ -104,7 +104,6 @@ def generate_story(user_prompt: str):
             "Ishan -> (skilled video editor, cooks bad food very nicely), "
             "Kuriak -> (buys ice cream), "
             "Monami -> (skilled at coding, helpful, good person), "
-            "Nishant -> (energetic, depressed, intrusive), "
             "Heet -> (smart, dependable, tech-savvy, a known hacker), "
             "Krishna -> (gymrat), "
             "Dhruv -> (bad game developer), "
@@ -112,7 +111,16 @@ def generate_story(user_prompt: str):
             "Varun -> (Ritika's boyfriend, tall), " # harsheta did this
             "Yash -> (a normal guy), "
             "Samya -> (sweet, caring, good hair), "
-            "Karan -> (socially awkward, responsible), "
+            "Karan -> (Natural leader, Eternal optimist in a group of chaos, Eatsure-points hoarder, 'Murali sir will fix it' believer), "
+            "Nishant -> (Follow-up machine, Sponsor sweet-talker, Professional worrier, Group DP victim), "
+            "Prateek -> ('Peace' one-word response master, Message-deleter, Bouquet negotiator, Problem-solving wizard), "
+            "Tanvi -> (Emoji abuser, Food beggar, Group DP conspirator, Meme encyclopedia), "
+            "Abhinav -> (Money tracker, Spider discoverer, 'Tech treat' financer, Adobe flex master), "
+            "Vedant -> (No-filter truth teller, Audio message spammer, UI obsessed, Discord server wannabe owner), "
+            "DIVYANSHU -> (Aftermovie defender, Group multiplier, Music mood setter, Progress reporter), "
+            "Anoushka -> (Serial apologizer, Merch drama survivor, Grid post procrastinator, Design perfectionist), "
+            "Soham -> (Anti-group creator, Instagram strategist, 'Let me handle it' promises with zero follow-through, 'I hate the varsity' protestor), "
+            "Aman L -> (Silent Discord dictator, 'Vedant is noobda' savage, 'Ly' conversationalist, Appears only when summoned like a rare Pokémon), " 
     )
 
     full_prompt = f"{system_prompt}\n\n{vit_specific_guidelines}\n\n{advertisement}\n\n{names}\n\n{user_prompt}\n\nContinue the story:"
